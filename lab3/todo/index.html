@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px;
+            font-size: 20px;
+            text-align: left;
+        }
+        .todo-container {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 400px;
+            background: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        li span {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+        li.completed span {
+            text-decoration: line-through;
+            color: gray;
+        }
+        .delete-button {
+            background: none;
+            border: none;
+            color: red;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ToDo List</h1>
+    </header>
+    <main>
+        <div class="todo-container">
+            <h2>ToDo List</h2>
+            <input type="text" id="todo-input" placeholder="Новая задача">
+            <button id="add-button">Добавить</button>
+            <ul id="todo-list"></ul>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const todoInput = document.getElementById("todo-input");
+            const addButton = document.getElementById("add-button");
+            const todoList = document.getElementById("todo-list");
+
+            addButton.addEventListener("click", function () {
+                const taskText = todoInput.value.trim();
+                if (taskText == "") {
+                    alert("field can not be empty");
+                    return;
+                }
+                    const listItem = document.createElement("li");
+
+                    const checkbox = document.createElement("input");
+                    checkbox.type = "checkbox";
+                    checkbox.addEventListener("change", function () {
+                        listItem.classList.toggle("completed");
+                    });
+
+                    const taskTextElement = document.createElement("span");
+                    taskTextElement.textContent = taskText;
+
+                    const deleteButton = document.createElement("button");
+                    deleteButton.innerHTML = "🗑️";
+                    deleteButton.classList.add("delete-button");
+                    deleteButton.addEventListener("click", function () {
+                        todoList.removeChild(listItem);
+                    });
+
+                    listItem.appendChild(checkbox);
+                    listItem.appendChild(taskTextElement);
+                    listItem.appendChild(deleteButton);
+                    todoList.appendChild(listItem);
+
+                    todoInput.value = "";
+            });
+        });
+    </script>
+</body>
+</html>
