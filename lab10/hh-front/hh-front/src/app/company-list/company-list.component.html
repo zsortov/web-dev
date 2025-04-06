@@ -1,0 +1,20 @@
+<h2>📦 Компании</h2>
+<ul>
+  <li *ngFor="let company of companies" (click)="showVacancies(company.id)" style="cursor: pointer; margin-bottom: 10px;">
+    <strong>{{ company.name }}</strong> ({{ company.city }})<br />
+    <small>{{ company.address }}</small>
+  </li>
+</ul>
+
+<hr />
+
+<div *ngIf="vacancies.length > 0">
+  <h3>💼 Вакансии</h3>
+  <ul>
+    <li *ngFor="let v of vacancies" style="margin-bottom: 15px;">
+      <strong>{{ v.name }}</strong><br />
+      <span>{{ v.description }}</span><br />
+      <b>💰 Зарплата:</b> {{ v.salary | number }} ₸
+    </li>
+  </ul>
+</div>

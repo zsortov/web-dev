@@ -1,0 +1,90 @@
+{
+    "info": {
+      "name": "HH API",
+      "_postman_id": "12345678-abcd-efgh-ijkl-987654321000",
+      "description": "API for HH-back Django lab",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Get All Companies",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8000/api/companies/",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8000",
+            "path": ["api", "companies", ""]
+          }
+        }
+      },
+      {
+        "name": "Get Company by ID",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8000/api/companies/1/",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8000",
+            "path": ["api", "companies", "1", ""]
+          }
+        }
+      },
+      {
+        "name": "Get Vacancies by Company",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8000/api/companies/1/vacancies/",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8000",
+            "path": ["api", "companies", "1", "vacancies", ""]
+          }
+        }
+      },
+      {
+        "name": "Get All Vacancies",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8000/api/vacancies/",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8000",
+            "path": ["api", "vacancies", ""]
+          }
+        }
+      },
+      {
+        "name": "Get Vacancy by ID",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8000/api/vacancies/1/",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8000",
+            "path": ["api", "vacancies", "1", ""]
+          }
+        }
+      },
+      {
+        "name": "Get Top 10 Vacancies",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8000/api/vacancies/top_ten/",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8000",
+            "path": ["api", "vacancies", "top_ten", ""]
+          }
+        }
+      }
+    ]
+  }
+  
